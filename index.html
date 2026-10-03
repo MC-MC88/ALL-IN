@@ -15,15 +15,9 @@
 <link rel="dns-prefetch" href="https://api.github.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;900&family=Fraunces:wght@700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&family=Manrope:wght@600;800&family=Space+Grotesk:wght@500;700&family=Zilla+Slab:wght@600&display=swap" rel="stylesheet">
 
-<!-- Markdown -> HTML (guarded in JS if it fails to load) -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
 <style>
-/* ============================================================
-   1. DESIGN TOKENS / THEMES
-   I use five themes. Each one is a set of CSS variables.
-   Switching a theme = switching the [data-theme] attribute.
-   ============================================================ */
 :root,
 html[data-theme="signal"]{
   --bg:#060a12;
@@ -167,9 +161,6 @@ html[data-theme="studio"]{
   color-scheme:light;
 }
 
-/* ============================================================
-   2. RESET / BASE
-   ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{
   scroll-behavior:smooth;
@@ -186,7 +177,6 @@ body{
   min-height:100%;
   transition:background-color .45s ease,color .45s ease;
 }
-/* I lock the scroll while the modal is open, and I keep the scroll position */
 body.is-locked{position:fixed;inset:0;width:100%;overflow:hidden}
 
 a{color:inherit;text-decoration:none}
@@ -202,17 +192,12 @@ p{text-wrap:pretty}
 .icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* I pause every infinite animation inside an off-screen container (helps old phones) */
 .is-paused *,
 .is-paused *::before,
 .is-paused *::after,
 .is-paused::before,
 .is-paused::after{animation-play-state:paused !important}
 
-/* ============================================================
-   3. BACKGROUND FX LAYER
-   I paint this layer once — no repaint on scroll.
-   ============================================================ */
 .fx-layer{
   position:fixed;
   inset:0;
@@ -226,9 +211,6 @@ p{text-wrap:pretty}
 }
 main,header,footer{position:relative;z-index:1}
 
-/* ============================================================
-   4. SKIP LINK / PROGRESS / TOAST / SCROLL HINT
-   ============================================================ */
 .skip-link{
   position:fixed;top:10px;left:50%;
   transform:translate(-50%,-160%);
@@ -293,9 +275,6 @@ main,header,footer{position:relative;z-index:1}
   50%{transform:scaleY(1);transform-origin:top}
 }
 
-/* ============================================================
-   5. HEADER / NAV / DRAWER
-   ============================================================ */
 .site-header{
   position:fixed;
   top:calc(10px + env(safe-area-inset-top,0px));
@@ -382,7 +361,6 @@ main,header,footer{position:relative;z-index:1}
 .menu-toggle[aria-expanded="true"] .burger::before{transform:translateY(6px) rotate(45deg)}
 .menu-toggle[aria-expanded="true"] .burger::after{transform:translateY(-6px) rotate(-45deg)}
 
-/* Mobile drawer — animated, no display:none flicker */
 .mobile-drawer{
   display:flex;flex-direction:column;gap:5px;
   margin:8px 10px 0;
@@ -417,9 +395,6 @@ main,header,footer{position:relative;z-index:1}
 }
 .drawer-backdrop.active{opacity:1;visibility:visible;pointer-events:auto}
 
-/* ============================================================
-   6. HERO
-   ============================================================ */
 .hero{
   min-height:100vh;
   min-height:100svh;
@@ -465,7 +440,6 @@ html.is-ready .hero-line > span{transform:translateY(0);opacity:1}
 .hero-desc{font-size:clamp(1rem,1.8vw,1.12rem);color:var(--text-muted);max-width:57ch;margin-bottom:30px}
 .cta-group{display:flex;flex-wrap:wrap;gap:10px}
 
-/* Buttons */
 .btn{
   position:relative;isolation:isolate;
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
@@ -493,7 +467,6 @@ html.is-ready .hero-line > span{transform:translateY(0);opacity:1}
 .btn .arrow{transition:transform .35s ease}
 .btn:hover .arrow{transform:translate(3px,-3px)}
 
-/* Hero visual */
 .hero-visual{position:relative;min-height:460px;display:grid;place-items:center}
 .visual-frame{
   width:min(410px,80vw);
@@ -551,9 +524,6 @@ html.is-ready .hero-line > span{transform:translateY(0);opacity:1}
   writing-mode:vertical-rl;
 }
 
-/* ============================================================
-   7. SECTIONS
-   ============================================================ */
 section{padding:130px 0;scroll-margin-top:96px}
 .section-head{
   display:grid;grid-template-columns:minmax(180px,.3fr) 1fr;
@@ -563,9 +533,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 .section-title{font-size:clamp(2.2rem,5vw,4.4rem);line-height:.95;margin-bottom:13px}
 .section-sub{color:var(--text-muted);font-size:1rem;max-width:62ch}
 
-/* ============================================================
-   8. PROJECT GRID + CARDS
-   ============================================================ */
 .project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
 
 .project-item{
@@ -660,7 +627,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 .project-link{color:var(--text);transition:color .25s ease}
 .project-index{opacity:.6}
 
-/* Read more button — sits under the card */
 .read-more-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;min-height:46px;
@@ -678,7 +644,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 .read-more-btn:hover{background:var(--surface-hover);border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
 .read-more-btn:active{transform:translateY(0) scale(.99)}
 
-/* Hover effects only for real pointers — no sticky hover on touch */
 @media (hover:hover) and (pointer:fine){
   .project-card:hover{transform:translateY(-8px);border-color:var(--border-strong);box-shadow:var(--shadow-card-hover)}
   .project-card:hover .project-visual::before{transform:scale(1.15)}
@@ -687,7 +652,6 @@ section{padding:130px 0;scroll-margin-top:96px}
   .project-card:hover .project-link{color:var(--accent)}
 }
 
-/* Skeletons */
 .skeleton{
   grid-column:span 4;
   min-height:290px;
@@ -704,9 +668,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 }
 @keyframes shimmer{to{transform:translateX(100%)}}
 
-/* ============================================================
-   9. ABOUT / STATS / CONTACT
-   ============================================================ */
 .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
 .about-card,.stat-box,.contact-card{
   background:var(--bg-elevated);
@@ -751,9 +712,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 .contact-label{font:700 .63rem var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
 .contact-value{font-size:.95rem;font-weight:700;word-break:break-word}
 
-/* ============================================================
-   10. FOOTER
-   ============================================================ */
 footer{
   padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));
   border-top:var(--border-w) solid var(--border);
@@ -765,9 +723,6 @@ footer{
   font:700 .68rem var(--font-mono);letter-spacing:.04em;
 }
 
-/* ============================================================
-   11. MODAL — README VIEWER
-   ============================================================ */
 .modal-overlay{
   position:fixed;inset:0;z-index:1000;
   display:flex;align-items:center;justify-content:center;
@@ -864,7 +819,6 @@ footer{
 .modal-body table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.9rem;display:block;overflow-x:auto}
 .modal-body th,.modal-body td{border:1px solid var(--border);padding:8px 12px;text-align:left}
 
-/* Modal footer — paired actions (Return / Visit) */
 .modal-footer{
   flex-shrink:0;
   padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px));
@@ -875,7 +829,6 @@ footer{
   gap:10px;
 }
 
-/* Loading + empty states */
 .modal-state{text-align:center;padding:56px 20px}
 .spinner{
   width:28px;height:28px;margin:0 auto 16px;
@@ -888,7 +841,6 @@ footer{
 .modal-state p{margin:0;font-size:.92rem}
 .modal-state .hint{font-size:.78rem;opacity:.65;margin-top:10px}
 
-/* On mobile the modal becomes a bottom sheet */
 @media (max-width:680px){
   .modal-overlay{padding:0;align-items:flex-end}
   .modal{
@@ -907,14 +859,10 @@ footer{
   }
   .modal-footer .btn{width:100%}
 }
-/* Backdrop blur only on desktop — it is expensive on mobile GPUs */
 @media (min-width:681px) and (hover:hover){
   .modal-overlay{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 }
 
-/* ============================================================
-   12. REVEAL ANIMATIONS
-   ============================================================ */
 .reveal{
   opacity:0;
   transform:translateY(28px);
@@ -924,7 +872,6 @@ footer{
 .reveal.is-visible{opacity:1;transform:none}
 .project-item.reveal{--reveal-delay:calc(min(var(--i,0),8) * 55ms)}
 
-/* Theme switch circular reveal — uses View Transitions API */
 @media (prefers-reduced-motion:no-preference){
   ::view-transition-old(root){animation:none}
   ::view-transition-new(root){animation:themeReveal .55s cubic-bezier(.2,.8,.2,1)}
@@ -934,9 +881,6 @@ footer{
   }
 }
 
-/* ============================================================
-   13. RESPONSIVE
-   ============================================================ */
 @media (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:20px}
   .hero-visual{min-height:360px}
@@ -986,9 +930,6 @@ footer{
   .fx-layer{opacity:calc(var(--fx-opacity) * .6)}
 }
 
-/* ============================================================
-   14. REDUCED MOTION
-   ============================================================ */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{
@@ -1001,7 +942,6 @@ footer{
   ::view-transition-new(root){animation:none !important}
 }
 
-/* Fallback for browsers without modern color functions */
 @supports not (background:color-mix(in srgb,red,blue)){
   .nav,.mobile-drawer,.project-card,.about-card,.stat-box,.contact-card,.modal{background-color:var(--bg-elevated)}
 }
@@ -1015,7 +955,6 @@ footer{
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- ============ HEADER ============ -->
 <header class="site-header" id="siteHeader">
   <div class="shell shell--header">
     <nav class="nav" aria-label="Primary">
@@ -1054,7 +993,6 @@ footer{
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
 <main>
-  <!-- ============ HERO ============ -->
   <section class="hero" id="home">
     <div class="shell hero-grid">
       <div class="hero-copy">
@@ -1093,7 +1031,6 @@ footer{
     </div>
   </section>
 
-  <!-- ============ WORK ============ -->
   <section id="work">
     <div class="shell">
       <div class="section-head reveal">
@@ -1108,7 +1045,6 @@ footer{
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
   <section id="about">
     <div class="shell">
       <div class="section-head reveal">
@@ -1132,7 +1068,6 @@ footer{
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
   <section id="contact">
     <div class="shell">
       <div class="section-head reveal">
@@ -1190,7 +1125,6 @@ footer{
   </div>
 </footer>
 
-<!-- ============ README MODAL ============ -->
 <div class="modal-overlay" id="readmeModal">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <header class="modal-header">
@@ -1204,7 +1138,6 @@ footer{
     <div class="modal-body" id="modalBody"></div>
 
     <footer class="modal-footer">
-      <!-- Return to browsing the portfolio without visiting the live site -->
       <button class="btn" id="modalReturnBtn" type="button">
         <span aria-hidden="true">←</span> Return to portfolio
       </button>
@@ -1215,7 +1148,6 @@ footer{
   </div>
 </div>
 
-<!-- ============ SVG SPRITE ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
   <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></symbol>
@@ -1228,19 +1160,14 @@ footer{
 (function () {
   'use strict';
 
-  /* ==========================================================
-     CONFIG — the only part I ever need to touch.
-     ========================================================== */
   const CONFIG = {
     githubUser: 'MC-MC88',
 
-    /* ----------------------------------------------------------
-       MY PROJECT LIST
-       I paste one link per line. The order here is the order
-       on the page. I can add up to 50 (or more) whenever I want.
-       I can paste either a full GitHub URL or just the repo name.
-       ---------------------------------------------------------- */
     projects: [
+      // --- Priority projects ---
+      'FP88',
+      'CARNET88',
+
       // --- Original projects ---
       'tv88-pro',
       'wsr88',
@@ -1273,49 +1200,46 @@ footer{
       'INK88-MC88',
       'DB88-MC88',
       'SYMBOLES88-MC88'
-
-      // I keep pasting new links above this line. Nothing else to do.
     ],
 
-    /* ----------------------------------------------------------
-       OPTIONAL OVERRIDES
-       Only for projects that need a custom title or a custom
-       live URL. Everything else works fine without an entry here.
-       ---------------------------------------------------------- */
     overrides: {
-  // --- Original projects ---
-  'tv88-pro':             { liveUrl: 'https://MC-MC88.github.io/Tv88-pro/' },
-  'wsr88':                { liveUrl: 'https://MC-MC88.github.io/WSR88/' },
-  'j-e-tais-la--95-mc88': { liveUrl: 'https://MC-MC88.github.io/J-e-tais-la--95-MC88/' },
-  'jetli-mc88':           { liveUrl: 'https://MC-MC88.github.io/Jetli-MC88/' },
-  'quran-hafs-mc88':      { title: 'Quran Hafs', liveUrl: 'https://MC-MC88.github.io/quran-hafs-MC88/' },
-  'zkr-mc88':             { liveUrl: 'https://MC-MC88.github.io/ZKR-MC88/' },
-  'fast-mc88':            { liveUrl: 'https://MC-MC88.github.io/FAST-MC88/' },
-  'moon-mc88':            { liveUrl: 'https://MC-MC88.github.io/MOON-MC88/' },
-  'rmc88':                { liveUrl: 'https://MC-MC88.github.io/RMC88/' },
-  'scanner-mc88':         { liveUrl: 'https://MC-MC88.github.io/SCANNER-MC88/' },
-  'ntlas-mc88':           { liveUrl: 'https://MC-MC88.github.io/NTLAS-MC88/' },
-  'data-mc88':            { liveUrl: 'https://MC-MC88.github.io/DATA-MC88/' },
-  'mp-mc88':              { liveUrl: 'https://MC-MC88.github.io/MP-MC88/' },
-  'pic-mc88':             { liveUrl: 'https://MC-MC88.github.io/PIC-MC88/' },
-  'bm-mc88':              { liveUrl: 'https://MC-MC88.github.io/BM-MC88/' },
-  'sm-mc88':              { liveUrl: 'https://MC-MC88.github.io/SM-MC88/' },
-  'doctools-mc88':        { liveUrl: 'https://MC-MC88.github.io/DOCTOOLS-MC88/' },
-  'tss-mc88':             { liveUrl: 'https://MC-MC88.github.io/TSS-MC88/' },
-  'pharma-mc88':          { liveUrl: 'https://MC-MC88.github.io/PHARMA-MC88/' },
-  'shop-mc88':            { liveUrl: 'https://MC-MC88.github.io/SHOP-MC88/' },
-  'clock-mc88':           { liveUrl: 'https://MC-MC88.github.io/CLOCK-MC88/' },
-  'restau-mc88':          { liveUrl: 'https://MC-MC88.github.io/RESTAU-MC88/' },
-  'cabinet-isi-2':        { liveUrl: 'https://MC-MC88.github.io/cabinet-isi-2/' },
-  'pc-mc88':              { liveUrl: 'https://MC-MC88.github.io/PC-MC88/' },
+      // --- Priority projects ---
+      'fp88':     { title: 'Palestine 88', liveUrl: 'https://MC-MC88.github.io/FP88/' },
+      'carnet88': { title: 'Carnet 88',    liveUrl: 'https://MC-MC88.github.io/CARNET88/' },
 
-  // --- New projects ---
-  'pin88-mc88':           { liveUrl: 'https://MC-MC88.github.io/PIN88-MC88/' },
-  'morse88-mc88':         { liveUrl: 'https://MC-MC88.github.io/MORSE88-MC88/' },
-  'ink88-mc88':           { liveUrl: 'https://MC-MC88.github.io/INK88-MC88/' },
-  'db88-mc88':            { liveUrl: 'https://MC-MC88.github.io/DB88-MC88/' },
-  'symboles88-mc88':      { liveUrl: 'https://MC-MC88.github.io/SYMBOLES88-MC88/' }
-},
+      // --- Original projects ---
+      'tv88-pro':             { liveUrl: 'https://MC-MC88.github.io/Tv88-pro/' },
+      'wsr88':                { liveUrl: 'https://MC-MC88.github.io/WSR88/' },
+      'j-e-tais-la--95-mc88': { liveUrl: 'https://MC-MC88.github.io/J-e-tais-la--95-MC88/' },
+      'jetli-mc88':           { liveUrl: 'https://MC-MC88.github.io/Jetli-MC88/' },
+      'quran-hafs-mc88':      { title: 'Quran Hafs', liveUrl: 'https://MC-MC88.github.io/quran-hafs-MC88/' },
+      'zkr-mc88':             { liveUrl: 'https://MC-MC88.github.io/ZKR-MC88/' },
+      'fast-mc88':            { liveUrl: 'https://MC-MC88.github.io/FAST-MC88/' },
+      'moon-mc88':            { liveUrl: 'https://MC-MC88.github.io/MOON-MC88/' },
+      'rmc88':                { liveUrl: 'https://MC-MC88.github.io/RMC88/' },
+      'scanner-mc88':         { liveUrl: 'https://MC-MC88.github.io/SCANNER-MC88/' },
+      'ntlas-mc88':           { liveUrl: 'https://MC-MC88.github.io/NTLAS-MC88/' },
+      'data-mc88':            { liveUrl: 'https://MC-MC88.github.io/DATA-MC88/' },
+      'mp-mc88':              { liveUrl: 'https://MC-MC88.github.io/MP-MC88/' },
+      'pic-mc88':             { liveUrl: 'https://MC-MC88.github.io/PIC-MC88/' },
+      'bm-mc88':              { liveUrl: 'https://MC-MC88.github.io/BM-MC88/' },
+      'sm-mc88':              { liveUrl: 'https://MC-MC88.github.io/SM-MC88/' },
+      'doctools-mc88':        { liveUrl: 'https://MC-MC88.github.io/DOCTOOLS-MC88/' },
+      'tss-mc88':             { liveUrl: 'https://MC-MC88.github.io/TSS-MC88/' },
+      'pharma-mc88':          { liveUrl: 'https://MC-MC88.github.io/PHARMA-MC88/' },
+      'shop-mc88':            { liveUrl: 'https://MC-MC88.github.io/SHOP-MC88/' },
+      'clock-mc88':           { liveUrl: 'https://MC-MC88.github.io/CLOCK-MC88/' },
+      'restau-mc88':          { liveUrl: 'https://MC-MC88.github.io/RESTAU-MC88/' },
+      'cabinet-isi-2':        { liveUrl: 'https://MC-MC88.github.io/cabinet-isi-2/' },
+      'pc-mc88':              { liveUrl: 'https://MC-MC88.github.io/PC-MC88/' },
+
+      // --- New projects ---
+      'pin88-mc88':           { liveUrl: 'https://MC-MC88.github.io/PIN88-MC88/' },
+      'morse88-mc88':         { liveUrl: 'https://MC-MC88.github.io/MORSE88-MC88/' },
+      'ink88-mc88':           { liveUrl: 'https://MC-MC88.github.io/INK88-MC88/' },
+      'db88-mc88':            { liveUrl: 'https://MC-MC88.github.io/DB88-MC88/' },
+      'symboles88-mc88':      { liveUrl: 'https://MC-MC88.github.io/SYMBOLES88-MC88/' }
+    },
 
     themes: ['signal', 'terminal', 'paper', 'dune', 'studio'],
     themeColors: {
@@ -1327,9 +1251,6 @@ footer{
     }
   };
 
-  /* ==========================================================
-     STATE
-     ========================================================== */
   const storedTheme = Number(localStorage.getItem('mc88-theme-index'));
   const state = {
     repos: [],
@@ -1363,9 +1284,6 @@ footer{
   const themeColorMeta = $('#themeColorMeta');
   const themeLabel = $('#themeLabel');
 
-  /* ==========================================================
-     HELPERS
-     ========================================================== */
   const escapeHTML = (value = '') => String(value).replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
   }[c]));
@@ -1377,7 +1295,6 @@ footer{
   function getProjectUrl(repo) {
     const key = repo.name.toLowerCase();
     const cfg = CONFIG.overrides[key] || {};
-    // Priority: my explicit liveUrl -> GitHub homepage field -> GitHub Pages convention
     return (cfg.liveUrl && cfg.liveUrl.trim()) ||
       repo.homepage ||
       `https://${CONFIG.githubUser}/${repo.name}/`;
@@ -1391,9 +1308,6 @@ footer{
     toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2000);
   }
 
-  /* ==========================================================
-     THEME — five themes, cycled by a button click
-     ========================================================== */
   function updateThemeColor() {
     const theme = CONFIG.themes[state.themeIndex];
     if (themeColorMeta) themeColorMeta.setAttribute('content', CONFIG.themeColors[theme] || '#060a12');
@@ -1410,7 +1324,6 @@ footer{
       updateThemeColor();
     };
 
-    // Circular reveal from the click point, when the browser supports it
     const canTransition = typeof document.startViewTransition === 'function' &&
       !REDUCED_MOTION && event && typeof event.clientX === 'number';
 
@@ -1425,16 +1338,12 @@ footer{
     showToast(`Theme · ${theme}`);
   }
 
-  // Apply the saved theme as early as possible
   document.documentElement.dataset.theme = CONFIG.themes[state.themeIndex];
   updateThemeColor();
 
   $('#desktopThemeBtn').addEventListener('click', applyTheme);
   $('#mobileThemeBtn').addEventListener('click', applyTheme);
 
-  /* ==========================================================
-     MOBILE DRAWER
-     ========================================================== */
   function setDrawer(open) {
     drawer.classList.toggle('active', open);
     drawerBackdrop.classList.toggle('active', open);
@@ -1460,9 +1369,6 @@ footer{
     if (e.matches) setDrawer(false);
   });
 
-  /* ==========================================================
-     MODAL — README VIEWER
-     ========================================================== */
   const modalSkeleton = `
     <div class="modal-state">
       <span class="spinner" aria-hidden="true"></span>
@@ -1475,7 +1381,6 @@ footer{
       <p class="hint">The repository does not contain a readable README.md file.</p>
     </div>`;
 
-  /** Minimal sanitizer for rendered markdown — extra safety on top of marked. */
   function sanitize(fragment) {
     fragment.querySelectorAll('script,iframe,object,embed,form,style,link,meta,base').forEach((n) => n.remove());
     fragment.querySelectorAll('*').forEach((el) => {
@@ -1496,7 +1401,6 @@ footer{
     template.innerHTML = html;
     sanitize(template.content);
 
-    // Open every external link from the README in a new tab
     template.content.querySelectorAll('a[href]').forEach((a) => {
       const href = a.getAttribute('href') || '';
       if (/^https?:/i.test(href)) {
@@ -1576,7 +1480,6 @@ footer{
     trapFocus(e);
   }
 
-  // Both the X button and the "Return to portfolio" button close the modal
   modalClose.addEventListener('click', closeModal);
   modalReturnBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
@@ -1596,7 +1499,6 @@ footer{
     openModal();
     modalClose.focus({ preventScroll: true });
 
-    // Instant render from cache
     if (state.readmeCache.has(key)) {
       setModalContent(state.readmeCache.get(key));
       return;
@@ -1625,7 +1527,6 @@ footer{
         window.marked.setOptions({ gfm: true, breaks: true, headerIds: false, mangle: false });
         html = window.marked.parse(markdown);
       } else {
-        // Fallback if the markdown library did not load
         html = `<pre><code>${escapeHTML(markdown)}</code></pre>`;
       }
 
@@ -1641,9 +1542,6 @@ footer{
     }
   }
 
-  /* ==========================================================
-     PROJECT RENDERING
-     ========================================================== */
   function projectCard(repo, index) {
     const key = repo.name.toLowerCase();
     const cfg = CONFIG.overrides[key] || {};
@@ -1707,7 +1605,6 @@ footer{
     measure();
   }
 
-  // I use one event listener for all the "Project details" buttons.
   grid.addEventListener('click', (e) => {
     const button = e.target.closest('.read-more-btn');
     if (!button) return;
@@ -1715,18 +1612,13 @@ footer{
     if (repo) openReadmeModal(repo);
   });
 
-  /* ==========================================================
-     DATA LOADING — GitHub API
-     ========================================================== */
   async function loadRepos() {
     renderSkeletons();
 
-    // I build the wanted list from my CONFIG.projects array. Order matters.
     const wanted = CONFIG.projects
       .map((entry) => {
         const s = String(entry).trim();
         if (!s) return null;
-        // I accept both a full GitHub link or just the repo name.
         const m = s.match(/github\.com\/[^\/]+\/([^\/\?#]+)/i);
         return (m ? m[1] : s).toLowerCase();
       })
@@ -1751,7 +1643,6 @@ footer{
 
       const data = await response.json();
 
-      // I keep only the repos in my list, and I sort them by my own order.
       repos = data
         .filter((repo) => !repo.fork && orderIndex.has(repo.name.toLowerCase()))
         .sort((a, b) =>
@@ -1761,7 +1652,6 @@ footer{
       console.warn('GitHub projects could not be loaded:', error);
       showToast('Offline mode · saved project list');
 
-      // Offline fallback: I still show my list, just without descriptions.
       repos = wanted.map((name) => ({ name, homepage: '', description: '' }));
     }
 
@@ -1774,9 +1664,6 @@ footer{
     renderProjects();
   }
 
-  /* ==========================================================
-     SCROLL — PROGRESS BAR + HEADER AUTO-HIDE
-     ========================================================== */
   const docEl = document.documentElement;
   let maxScroll = 0;
   let lastScrollY = 0;
@@ -1800,7 +1687,6 @@ footer{
 
       paintProgress();
 
-      // I hide the header while scrolling down, but never while the drawer is open.
       if (!drawer.classList.contains('active')) {
         const goingDown = y > lastScrollY + 6;
         const goingUp = y < lastScrollY - 6;
@@ -1808,7 +1694,6 @@ footer{
         else if (goingUp || y < 120) headerEl.classList.remove('is-hidden');
       }
 
-      // I fade the decorative scroll hint once the hero is behind us
       const hint = document.querySelector('.scroll-hint');
       if (hint) hint.classList.toggle('is-hidden', y > window.innerHeight * 0.6);
 
@@ -1828,7 +1713,6 @@ footer{
     }, 120);
   }, { passive: true });
 
-  // I recompute measurements whenever the page height changes
   if ('ResizeObserver' in window) {
     const ro = new ResizeObserver(() => {
       measure();
@@ -1837,9 +1721,6 @@ footer{
     ro.observe(document.body);
   }
 
-  /* ==========================================================
-     OBSERVERS — reveal, active nav, pause off-screen animations
-     ========================================================== */
   let revealObserver = null;
 
   function observeReveals(root = document) {
@@ -1863,7 +1744,6 @@ footer{
     });
   }
 
-  // I pause infinite animations for off-screen blocks — big help on old phones
   let liveObserver = null;
 
   function observeLive(root = document) {
@@ -1880,7 +1760,6 @@ footer{
     $$('[data-live]', root).forEach((el) => liveObserver.observe(el));
   }
 
-  // I highlight the nav link that matches the section in view
   const sections = $$('main section[id]');
   const navLinks = $$('[data-nav]');
 
@@ -1897,9 +1776,6 @@ footer{
     sections.forEach((section) => navObserver.observe(section));
   }
 
-  /* ==========================================================
-     HERO PARALLAX — desktop pointers only
-     ========================================================== */
   (function initHeroParallax() {
     if (REDUCED_MOTION || !FINE_POINTER) return;
 
@@ -1931,9 +1807,6 @@ footer{
     });
   })();
 
-  /* ==========================================================
-     BOOT
-     ========================================================== */
   requestAnimationFrame(() => {
     document.documentElement.classList.add('is-ready');
     observeReveals();
