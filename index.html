@@ -18,9 +18,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 
 <style>
-/* ============================================================
-   THEMES — seven visual identities
-   ============================================================ */
+/* Themes */
 :root,
 html[data-theme="signal"]{
   --bg:#060a12;
@@ -223,9 +221,7 @@ html[data-theme="void"]{
   color-scheme:dark;
 }
 
-/* ============================================================
-   RESET / BASE
-   ============================================================ */
+/* Base */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{
   scroll-behavior:smooth;
@@ -318,9 +314,7 @@ main,header,footer{position:relative;z-index:1}
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+/* Header */
 .site-header{
   position:fixed;
   top:calc(10px + env(safe-area-inset-top,0px));
@@ -441,9 +435,7 @@ main,header,footer{position:relative;z-index:1}
 }
 .drawer-backdrop.active{opacity:1;visibility:visible;pointer-events:auto}
 
-/* ============================================================
-   HERO
-   ============================================================ */
+/* Hero */
 .hero{
   min-height:100vh;
   min-height:100svh;
@@ -573,9 +565,7 @@ html.is-ready .hero-line > span{transform:translateY(0);opacity:1}
   writing-mode:vertical-rl;
 }
 
-/* ============================================================
-   MARQUEE — bold, MC88 only
-   ============================================================ */
+/* Marquee */
 .marquee{
   position:relative;
   overflow:hidden;
@@ -635,9 +625,7 @@ html.is-ready .hero-line > span{transform:translateY(0);opacity:1}
 }
 .marquee:hover .marquee-track{animation-play-state:paused}
 
-/* ============================================================
-   SECTIONS
-   ============================================================ */
+/* Sections */
 section{padding:130px 0;scroll-margin-top:96px}
 .section-head{
   display:grid;grid-template-columns:minmax(180px,.3fr) 1fr;
@@ -647,9 +635,7 @@ section{padding:130px 0;scroll-margin-top:96px}
 .section-title{font-size:clamp(2.2rem,5vw,4.4rem);line-height:.95;margin-bottom:13px}
 .section-sub{color:var(--text-muted);font-size:1rem;max-width:62ch}
 
-/* ============================================================
-   PROJECT GRID — original card design, enhanced animations
-   ============================================================ */
+/* Project grid */
 .project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
 
 .project-item{
@@ -767,7 +753,6 @@ section{padding:130px 0;scroll-margin-top:96px}
   display:inline-block;
 }
 
-/* Enhanced hover — bigger lift, more motion, coordinated */
 @media (hover:hover) and (pointer:fine){
   .project-card:hover{
     transform:translateY(-12px) scale(1.012);
@@ -795,7 +780,6 @@ section{padding:130px 0;scroll-margin-top:96px}
   .project-card:hover .project-index{opacity:1;transform:translateX(4px)}
 }
 
-/* Read more button — kept from original design */
 .read-more-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;min-height:46px;
@@ -836,7 +820,6 @@ section{padding:130px 0;scroll-margin-top:96px}
 .read-more-btn:hover .icon{transform:translateY(-2px) rotate(-8deg)}
 .read-more-btn:active{transform:translateY(0) scale(.99)}
 
-/* Skeleton */
 .skeleton{
   grid-column:span 4;
   min-height:290px;
@@ -853,9 +836,7 @@ section{padding:130px 0;scroll-margin-top:96px}
 }
 @keyframes shimmer{to{transform:translateX(100%)}}
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
+/* About */
 .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}
 .about-card,.stat-box,.contact-card{
   background:var(--bg-elevated);
@@ -901,9 +882,7 @@ section{padding:130px 0;scroll-margin-top:96px}
 .contact-label{font:700 .63rem var(--font-mono);color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
 .contact-value{font-size:.95rem;font-weight:700;word-break:break-word}
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* Footer */
 footer{
   padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px));
   border-top:var(--border-w) solid var(--border);
@@ -915,9 +894,7 @@ footer{
   font:700 .68rem var(--font-mono);letter-spacing:.04em;
 }
 
-/* ============================================================
-   MODAL — README viewer
-   ============================================================ */
+/* Modal */
 .modal-overlay{
   position:fixed;inset:0;z-index:1000;
   display:flex;align-items:center;justify-content:center;
@@ -1058,9 +1035,7 @@ footer{
   .modal-overlay{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 }
 
-/* ============================================================
-   REVEAL
-   ============================================================ */
+/* Reveal */
 .reveal{
   opacity:0;
   transform:translateY(28px);
@@ -1070,7 +1045,6 @@ footer{
 .reveal.is-visible{opacity:1;transform:none}
 .project-item.reveal{--reveal-delay:calc(min(var(--i,0),8) * 55ms)}
 
-/* View transitions */
 @media (prefers-reduced-motion:no-preference){
   ::view-transition-old(root){animation:none}
   ::view-transition-new(root){animation:themeReveal .55s cubic-bezier(.2,.8,.2,1)}
@@ -1080,9 +1054,7 @@ footer{
   }
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* Responsive */
 @media (max-width:1024px){
   .hero-grid{grid-template-columns:1fr;gap:20px}
   .hero-visual{min-height:360px}
@@ -1161,7 +1133,6 @@ footer{
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="shell shell--header">
     <nav class="nav" aria-label="Primary">
@@ -1200,7 +1171,6 @@ footer{
 <div class="drawer-backdrop" id="drawerBackdrop"></div>
 
 <main>
-  <!-- HERO -->
   <section class="hero" id="home">
     <div class="shell hero-grid">
       <div class="hero-copy">
@@ -1239,7 +1209,6 @@ footer{
     </div>
   </section>
 
-  <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <span>MC88</span>
@@ -1251,7 +1220,6 @@ footer{
     </div>
   </div>
 
-  <!-- WORK -->
   <section id="work">
     <div class="shell">
       <div class="section-head reveal">
@@ -1266,7 +1234,6 @@ footer{
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="shell">
       <div class="section-head reveal">
@@ -1302,7 +1269,6 @@ footer{
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="shell">
       <div class="section-head reveal">
@@ -1360,7 +1326,6 @@ footer{
   </div>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="readmeModal">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <header class="modal-header">
@@ -1384,7 +1349,6 @@ footer{
   </div>
 </div>
 
-<!-- SVG sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
   <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></symbol>
@@ -1401,103 +1365,107 @@ footer{
     githubUser: 'MC-MC88',
 
     projects: [
-      'RECIPES88',
-      '28NOVEMBRE88',
-      'CHILL88',
+      'MC-MC88',
+      'Jetli-MC88',
+      'CtoA-MC88',
+      'DB88-MC88',
+      'ALL-IN',
       'SPIN88',
       'NOTE88',
-      'SC88',
-      'GAMES88',
-      'TIME88',
-      'TDLB8',
-      'WEATHER88',
-      'MUSEUM88',
-      'AGENDA88',
+      'AGENDA88-MC88',
       'Send-MC88',
-      'FRESHLY88',
+      'quran-hafs-MC88',
       'L88',
-      'Fail88',
-      'FP88',
-      'CARNET88',
-      'tv88-pro',
-      'wsr88',
-      'j-e-tais-la--95-mc88',
-      'jetli-mc88',
-      'quran-hafs-mc88',
-      'zkr-mc88',
-      'fast-mc88',
-      'moon-mc88',
-      'rmc88',
-      'scanner-mc88',
-      'ntlas-mc88',
-      'data-mc88',
-      'mp-mc88',
-      'pic-mc88',
-      'bm-mc88',
-      'sm-mc88',
-      'doctools-mc88',
-      'tss-mc88',
-      'pharma-mc88',
-      'shop-mc88',
-      'clock-mc88',
-      'restau-mc88',
-      'cabinet-isi-2',
-      'pc-mc88',
-      'PIN88-MC88',
-      'MORSE88-MC88',
       'INK88-MC88',
-      'DB88-MC88',
-      'SYMBOLES88-MC88'
+      'SYMBOLES88-MC88',
+      'Tv88-pro',
+      'SCANNER-MC88',
+      'RMC88',
+      'FLASHCARDS88',
+      'TSS-MC88',
+      'DOCTOOLS-MC88',
+      'SC88',
+      'WSR88',
+      'PIN88-MC88',
+      'DATA-MC88',
+      'BM-MC88',
+      'FRESHLY88',
+      'ZKR-MC88',
+      'FAST-MC88',
+      'MP-MC88',
+      'CLOCK-MC88',
+      'MOON-MC88',
+      'NTLAS-MC88',
+      'WEATHER88',
+      'PIC-MC88',
+      'PC-MC88',
+      'SUITE88',
+      'TIME88',
+      'FP88',
+      'SM-MC88',
+      'TDL88',
+      'MUSEUM88',
+      'MORSE88-MC88',
+      'JSON88',
+      'DAX88',
+      'XL88',
+      'FEED88',
+      'STORE88',
+      'GAMES88',
+      'J-e-tais-la--95-MC88',
+      'Fail88'
     ],
 
     overrides: {
-      'recipes88':            { liveUrl: 'https://MC-MC88.github.io/RECIPES88/' },
-      '28novembre88':         { liveUrl: 'https://MC-MC88.github.io/28NOVEMBRE88/' },
-      'chill88':              { liveUrl: 'https://MC-MC88.github.io/CHILL88/' },
+      'mc-mc88':              { liveUrl: 'https://MC-MC88.github.io/' },
+      'jetli-mc88':           { liveUrl: 'https://MC-MC88.github.io/Jetli-MC88/' },
+      'ctoa-mc88':            { liveUrl: 'https://MC-MC88.github.io/CtoA-MC88/' },
+      'db88-mc88':            { liveUrl: 'https://MC-MC88.github.io/DB88-MC88/' },
+      'all-in':               { liveUrl: 'https://MC-MC88.github.io/ALL-IN/' },
       'spin88':               { liveUrl: 'https://MC-MC88.github.io/SPIN88/' },
       'note88':               { liveUrl: 'https://MC-MC88.github.io/NOTE88/' },
-      'sc88':                 { liveUrl: 'https://MC-MC88.github.io/SC88/' },
-      'games88':              { liveUrl: 'https://MC-MC88.github.io/GAMES88/' },
-      'time88':               { liveUrl: 'https://MC-MC88.github.io/TIME88/' },
-      'tdlb8':                { liveUrl: 'https://MC-MC88.github.io/TDLB8/' },
-      'weather88':            { liveUrl: 'https://MC-MC88.github.io/WEATHER88/' },
-      'museum88':             { liveUrl: 'https://MC-MC88.github.io/MUSEUM88/' },
-      'agenda88':             { liveUrl: 'https://MC-MC88.github.io/AGENDA88/' },
+      'agenda88-mc88':        { liveUrl: 'https://MC-MC88.github.io/AGENDA88-MC88/' },
       'send-mc88':            { liveUrl: 'https://MC-MC88.github.io/Send-MC88/' },
-      'freshly88':            { liveUrl: 'https://MC-MC88.github.io/FRESHLY88/' },
-      'l88':                  { liveUrl: 'https://MC-MC88.github.io/L88/' },
-      'fail88':               { liveUrl: 'https://MC-MC88.github.io/Fail88/' },
-      'fp88':                 { title: 'Palestine 88', liveUrl: 'https://MC-MC88.github.io/FP88/' },
-      'carnet88':             { title: 'Carnet 88',    liveUrl: 'https://MC-MC88.github.io/CARNET88/' },
-      'tv88-pro':             { liveUrl: 'https://MC-MC88.github.io/Tv88-pro/' },
-      'wsr88':                { liveUrl: 'https://MC-MC88.github.io/WSR88/' },
-      'j-e-tais-la--95-mc88': { liveUrl: 'https://MC-MC88.github.io/J-e-tais-la--95-MC88/' },
-      'jetli-mc88':           { liveUrl: 'https://MC-MC88.github.io/Jetli-MC88/' },
       'quran-hafs-mc88':      { title: 'Quran Hafs', liveUrl: 'https://MC-MC88.github.io/quran-hafs-MC88/' },
+      'l88':                  { liveUrl: 'https://MC-MC88.github.io/L88/' },
+      'ink88-mc88':           { liveUrl: 'https://MC-MC88.github.io/INK88-MC88/' },
+      'symboles88-mc88':      { liveUrl: 'https://MC-MC88.github.io/SYMBOLES88-MC88/' },
+      'tv88-pro':             { liveUrl: 'https://MC-MC88.github.io/Tv88-pro/' },
+      'scanner-mc88':         { liveUrl: 'https://MC-MC88.github.io/SCANNER-MC88/' },
+      'rmc88':                { liveUrl: 'https://MC-MC88.github.io/RMC88/' },
+      'flashcards88':         { liveUrl: 'https://MC-MC88.github.io/FLASHCARDS88/' },
+      'tss-mc88':             { liveUrl: 'https://MC-MC88.github.io/TSS-MC88/' },
+      'doctools-mc88':        { liveUrl: 'https://MC-MC88.github.io/DOCTOOLS-MC88/' },
+      'sc88':                 { liveUrl: 'https://MC-MC88.github.io/SC88/' },
+      'wsr88':                { liveUrl: 'https://MC-MC88.github.io/WSR88/' },
+      'pin88-mc88':           { liveUrl: 'https://MC-MC88.github.io/PIN88-MC88/' },
+      'data-mc88':            { liveUrl: 'https://MC-MC88.github.io/DATA-MC88/' },
+      'bm-mc88':              { liveUrl: 'https://MC-MC88.github.io/BM-MC88/' },
+      'freshly88':            { liveUrl: 'https://MC-MC88.github.io/FRESHLY88/' },
       'zkr-mc88':             { liveUrl: 'https://MC-MC88.github.io/ZKR-MC88/' },
       'fast-mc88':            { liveUrl: 'https://MC-MC88.github.io/FAST-MC88/' },
-      'moon-mc88':            { liveUrl: 'https://MC-MC88.github.io/MOON-MC88/' },
-      'rmc88':                { liveUrl: 'https://MC-MC88.github.io/RMC88/' },
-      'scanner-mc88':         { liveUrl: 'https://MC-MC88.github.io/SCANNER-MC88/' },
-      'ntlas-mc88':           { liveUrl: 'https://MC-MC88.github.io/NTLAS-MC88/' },
-      'data-mc88':            { liveUrl: 'https://MC-MC88.github.io/DATA-MC88/' },
       'mp-mc88':              { liveUrl: 'https://MC-MC88.github.io/MP-MC88/' },
-      'pic-mc88':             { liveUrl: 'https://MC-MC88.github.io/PIC-MC88/' },
-      'bm-mc88':              { liveUrl: 'https://MC-MC88.github.io/BM-MC88/' },
-      'sm-mc88':              { liveUrl: 'https://MC-MC88.github.io/SM-MC88/' },
-      'doctools-mc88':        { liveUrl: 'https://MC-MC88.github.io/DOCTOOLS-MC88/' },
-      'tss-mc88':             { liveUrl: 'https://MC-MC88.github.io/TSS-MC88/' },
-      'pharma-mc88':          { liveUrl: 'https://MC-MC88.github.io/PHARMA-MC88/' },
-      'shop-mc88':            { liveUrl: 'https://MC-MC88.github.io/SHOP-MC88/' },
       'clock-mc88':           { liveUrl: 'https://MC-MC88.github.io/CLOCK-MC88/' },
-      'restau-mc88':          { liveUrl: 'https://MC-MC88.github.io/RESTAU-MC88/' },
-      'cabinet-isi-2':        { liveUrl: 'https://MC-MC88.github.io/cabinet-isi-2/' },
+      'moon-mc88':            { liveUrl: 'https://MC-MC88.github.io/MOON-MC88/' },
+      'ntlas-mc88':           { liveUrl: 'https://MC-MC88.github.io/NTLAS-MC88/' },
+      'weather88':            { liveUrl: 'https://MC-MC88.github.io/WEATHER88/' },
+      'pic-mc88':             { liveUrl: 'https://MC-MC88.github.io/PIC-MC88/' },
       'pc-mc88':              { liveUrl: 'https://MC-MC88.github.io/PC-MC88/' },
-      'pin88-mc88':           { liveUrl: 'https://MC-MC88.github.io/PIN88-MC88/' },
+      'suite88':              { liveUrl: 'https://MC-MC88.github.io/SUITE88/' },
+      'time88':               { liveUrl: 'https://MC-MC88.github.io/TIME88/' },
+      'fp88':                 { title: 'Palestine 88', liveUrl: 'https://MC-MC88.github.io/FP88/' },
+      'sm-mc88':              { liveUrl: 'https://MC-MC88.github.io/SM-MC88/' },
+      'tdl88':                { liveUrl: 'https://MC-MC88.github.io/TDL88/' },
+      'museum88':             { liveUrl: 'https://MC-MC88.github.io/MUSEUM88/' },
       'morse88-mc88':         { liveUrl: 'https://MC-MC88.github.io/MORSE88-MC88/' },
-      'ink88-mc88':           { liveUrl: 'https://MC-MC88.github.io/INK88-MC88/' },
-      'db88-mc88':            { liveUrl: 'https://MC-MC88.github.io/DB88-MC88/' },
-      'symboles88-mc88':      { liveUrl: 'https://MC-MC88.github.io/SYMBOLES88-MC88/' }
+      'json88':               { liveUrl: 'https://MC-MC88.github.io/JSON88/' },
+      'dax88':                { liveUrl: 'https://MC-MC88.github.io/DAX88/' },
+      'xl88':                 { liveUrl: 'https://MC-MC88.github.io/XL88/' },
+      'feed88':               { liveUrl: 'https://MC-MC88.github.io/FEED88/' },
+      'store88':              { liveUrl: 'https://MC-MC88.github.io/STORE88/' },
+      'games88':              { liveUrl: 'https://MC-MC88.github.io/GAMES88/' },
+      'j-e-tais-la--95-mc88': { liveUrl: 'https://MC-MC88.github.io/J-e-tais-la--95-MC88/' },
+      'fail88':               { liveUrl: 'https://MC-MC88.github.io/Fail88/' }
     },
 
     themes: ['signal', 'terminal', 'paper', 'dune', 'studio', 'ember', 'void'],
